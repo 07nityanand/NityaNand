@@ -3,1071 +3,1444 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nitya Nand Pandey - Mobile Developer & Tech Lead</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Nitya Nand Pandey - Solution Architect</title>
+    <meta name="description" content="Solution Architect, Enterprise Architect, and Application Architect with 14+ years in mobile, backend, and enterprise platforms. Tech Lead at Care Health Insurance.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520;9..144,640&family=Outfit:wght@380;480;580&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
-            --accent-color: #e74c3c;
+            --ink: #1c1915;
+            --muted: #5e584f;
+            --paper: #f4efe6;
+            --card: #fffdf8;
+            --line: rgba(28, 25, 21, 0.1);
+            --navy: #16202c;
+            --navy-2: #243246;
+            --gold: #c4964a;
+            --gold-deep: #8d6730;
+            --teal: #1d6b66;
+            --shadow: 0 16px 40px rgba(28, 25, 21, 0.08);
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
+            font-family: "Outfit", sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.65;
+            font-weight: 380;
         }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
+
+        a { color: inherit; }
+
+        .wrap {
+            width: min(1120px, calc(100% - 40px));
             margin: 0 auto;
-            padding: 0 15px;
         }
-        
-        /* Header */
-        header {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 30px 0;
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: rgba(22, 32, 44, 0.92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(196, 150, 74, 0.25);
         }
-        
-        .header-content {
+
+        .nav-bar {
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
+            min-height: 68px;
+            gap: 16px;
         }
-        
-        .profile-section {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            width: 100%;
-        }
-        
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 5px solid white;
-            object-fit: cover;
-            background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            color: var(--dark-color);
-            flex-shrink: 0;
-        }
-        
-        .profile-info h1 {
-            font-size: clamp(1.5rem, 5vw, 2.5rem);
-            margin-bottom: 10px;
-        }
-        
-        .profile-info p {
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            margin-bottom: 15px;
-        }
-        
-        .contact-info {
-            margin-top: 20px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-            font-size: clamp(0.85rem, 2vw, 1rem);
-        }
-        
-        .contact-item i {
-            margin-right: 10px;
-            color: var(--light-color);
-            width: 16px;
-        }
-        
-        .contact-item a {
-            color: white;
+
+        .brand {
+            color: #f7f1e6;
             text-decoration: none;
-            word-break: break-word;
+            font-family: "Fraunces", serif;
+            font-size: 1.15rem;
+            letter-spacing: 0.01em;
         }
-        
-        .contact-item a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Mobile Navigation */
+
+        .brand span { color: var(--gold); }
+
         .mobile-nav-toggle {
             display: none;
             background: transparent;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
+            border: 1px solid rgba(247, 241, 230, 0.25);
+            color: #f7f1e6;
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            font-size: 1.05rem;
             cursor: pointer;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
         }
-        
-        /* Navigation */
-        nav {
-            background-color: var(--dark-color);
-            padding: 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav ul {
+
+        #nav-menu {
             display: flex;
-            justify-content: center;
+            flex-wrap: wrap;
+            justify-content: flex-end;
             list-style: none;
-            flex-wrap: wrap;
+            gap: 4px;
         }
-        
-        nav ul li {
-            margin: 0;
-        }
-        
-        nav ul li a {
-            color: white;
+
+        #nav-menu a {
+            color: #efe7d8;
             text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-            display: block;
-            padding: 15px 10px;
+            font-size: 0.88rem;
+            font-weight: 480;
+            padding: 8px 10px;
+            border-radius: 999px;
         }
-        
-        nav ul li a:hover {
-            color: var(--secondary-color);
-            background-color: rgba(255,255,255,0.1);
+
+        #nav-menu a:hover {
+            background: rgba(196, 150, 74, 0.18);
+            color: #fff;
         }
-        
-        /* Sections */
-        section {
-            padding: 50px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
+
+        .hero {
+            background:
+                radial-gradient(ellipse at 88% -10%, rgba(196, 150, 74, 0.35), transparent 42%),
+                radial-gradient(ellipse at -10% 110%, rgba(29, 107, 102, 0.45), transparent 46%),
+                linear-gradient(160deg, #121922 0%, #1c2c3d 55%, #243246 100%);
+            color: #f7f1e6;
+            padding: 72px 0 88px;
             position: relative;
+            overflow: hidden;
         }
-        
-        .section-title h2 {
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            color: var(--primary-color);
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        
-        .section-title h2::after {
-            content: '';
+
+        .hero::after {
+            content: "";
             position: absolute;
-            width: 50px;
-            height: 3px;
-            background-color: var(--secondary-color);
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            inset: auto -80px -90px auto;
+            width: 280px;
+            height: 280px;
+            border: 1px solid rgba(196, 150, 74, 0.25);
+            border-radius: 50%;
         }
-        
-        /* About Section */
-        .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 36px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
         }
-        
-        .about-text {
-            flex: 1 1 100%;
-            min-width: 250px;
+
+        .monogram {
+            width: 132px;
+            height: 132px;
+            border-radius: 36px;
+            display: grid;
+            place-items: center;
+            font-family: "Fraunces", serif;
+            font-size: 2.6rem;
+            color: var(--navy);
+            background: linear-gradient(160deg, #f8f1e4, #e7d3ae);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
         }
-        
-        .about-text p {
-            margin-bottom: 15px;
+
+        .eyebrow {
+            color: var(--gold);
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-size: 0.78rem;
+            font-weight: 580;
+            margin-bottom: 10px;
         }
-        
-        .skills {
-            flex: 1 1 100%;
-            min-width: 250px;
+
+        h1 {
+            font-family: "Fraunces", serif;
+            font-weight: 640;
+            font-size: clamp(2.4rem, 5vw, 4.2rem);
+            line-height: 1.05;
+            letter-spacing: -0.03em;
         }
-        
-        .skill-category {
-            margin-bottom: 30px;
+
+        .role {
+            margin-top: 14px;
+            font-size: 1.15rem;
+            color: #efe4d0;
+            max-width: 640px;
         }
-        
-        .skill-category h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--light-color);
-            padding-bottom: 5px;
-            font-size: clamp(1.1rem, 3vw, 1.3rem);
-        }
-        
-        .skill-tags {
+
+        .hero-links {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            margin-top: 22px;
         }
-        
-        .skill-tag {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-bottom: 5px;
+
+        .hero-links a {
+            text-decoration: none;
+            color: #f7f1e6;
+            border: 1px solid rgba(247, 241, 230, 0.22);
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-size: 0.92rem;
         }
-        
-        /* Experience Section */
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--light-color);
-            top: 0;
-            bottom: 0;
-            left: 18px;
-            margin-left: 0;
-        }
-        
-        .timeline-item {
-            padding: 10px 40px 10px 60px;
-            position: relative;
-            width: 100%;
-            box-sizing: border-box;
-            margin-bottom: 20px;
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            border: 4px solid var(--secondary-color);
-            border-radius: 50%;
-            z-index: 1;
-            left: 10px;
-            top: 15px;
-        }
-        
-        .timeline-content {
-            padding: 15px 20px;
-            background-color: white;
-            position: relative;
-            border-radius: 6px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .timeline-date {
-            font-weight: bold;
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
-        
-        .timeline-role {
-            font-weight: bold;
-            font-size: 1.1rem;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-        
-        .timeline-company {
-            font-style: italic;
-            margin-bottom: 15px;
-            color: #666;
-            font-size: 0.95rem;
-        }
-        
-        .timeline-description p {
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-        
-        /* Projects Section */
-        .projects-grid {
+
+        .hero-links a:hover { border-color: var(--gold); color: #fff; }
+
+        .hero-links i { margin-right: 8px; color: var(--gold); }
+
+        .stats {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-top: -42px;
+            position: relative;
+            z-index: 2;
         }
-        
-        .project-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+
+        .stat {
+            background: var(--card);
+            border-radius: 18px;
+            padding: 18px 18px 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.6);
         }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
+
+        .stat strong {
+            display: block;
+            font-family: "Fraunces", serif;
+            font-size: 1.7rem;
+            color: var(--gold-deep);
+            line-height: 1.1;
         }
-        
-        .project-img {
-            height: 150px;
-            background-color: var(--primary-color);
+
+        .stat span { color: var(--muted); font-size: 0.9rem; }
+
+        section { padding: 78px 0; scroll-margin-top: 78px; }
+
+        .section-kicker {
+            color: var(--gold-deep);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 580;
+        }
+
+        h2 {
+            font-family: "Fraunces", serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin: 6px 0 28px;
+        }
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 28px;
+        }
+
+        .about-copy, .skill-panel, .job, .project-card, .edu-card, .award-card, .contact-card, .more-apps {
+            background: var(--card);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(28, 25, 21, 0.05);
+        }
+
+        .about-copy { padding: 32px; }
+
+        .about-copy p + p { margin-top: 14px; }
+
+        .about-copy p:first-child {
+            font-size: 1.12rem;
+            color: #2a261f;
+        }
+
+        .skill-panel { padding: 26px 26px 10px; }
+
+        .skill-group { margin-bottom: 18px; }
+
+        .skill-group h3 {
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-weight: 580;
+            margin-bottom: 10px;
+        }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+        .tag {
+            background: #f3ecdf;
+            color: #3d3426;
+            border-radius: 999px;
+            padding: 5px 11px;
+            font-size: 0.84rem;
+        }
+
+        .band { background: #ebe4d8; }
+
+        .timeline { display: grid; gap: 18px; }
+
+        .job { padding: 26px 28px 22px 28px; position: relative; }
+
+        .job::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 22px;
+            bottom: 22px;
+            width: 4px;
+            border-radius: 4px;
+            background: linear-gradient(var(--gold), var(--teal));
+        }
+
+        .when {
+            color: var(--gold-deep);
+            font-weight: 580;
+            font-size: 0.9rem;
+        }
+
+        .job h3 {
+            font-family: "Fraunces", serif;
+            font-size: 1.45rem;
+            margin: 4px 0 2px;
+            letter-spacing: -0.02em;
+        }
+
+        .where { color: var(--muted); margin-bottom: 12px; }
+
+        .job ul { padding-left: 18px; }
+
+        .job li { margin-bottom: 8px; }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .project-card { overflow: hidden; display: flex; flex-direction: column; }
+
+        .project-top {
+            height: 92px;
+            display: flex;
+            align-items: flex-end;
+            padding: 16px 18px;
+            color: #fff;
+            font-size: 1.6rem;
+        }
+
+        .tone-1 { background: linear-gradient(135deg, #1d6b66, #143f4a); }
+        .tone-2 { background: linear-gradient(135deg, #8d6730, #c4964a); }
+        .tone-3 { background: linear-gradient(135deg, #243246, #3d5874); }
+        .tone-4 { background: linear-gradient(135deg, #7a3e3a, #c46a62); }
+        .tone-5 { background: linear-gradient(135deg, #2f4a32, #6d8f62); }
+        .tone-6 { background: linear-gradient(135deg, #3a3158, #6d6294); }
+
+        .project-body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+
+        .project-body h3 {
+            font-family: "Fraunces", serif;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .project-body p { color: #3f3a33; font-size: 0.96rem; }
+
+        .project-body .tags { margin-top: auto; }
+
+        .more-apps { margin-top: 18px; padding: 22px 24px; }
+
+        .more-apps h3 {
+            font-family: "Fraunces", serif;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .edu-grid, .award-grid, .contact-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .edu-grid { grid-template-columns: repeat(3, 1fr); }
+        .award-grid { grid-template-columns: repeat(2, 1fr); }
+        .contact-grid { grid-template-columns: repeat(5, 1fr); }
+
+        .edu-card, .award-card, .contact-card { padding: 22px; }
+
+        .edu-card i, .award-card i, .contact-card i {
+            color: var(--gold-deep);
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+        }
+
+        .edu-card h3, .award-card h3, .contact-card h3 {
+            font-family: "Fraunces", serif;
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+
+        .edu-card p, .award-card p, .contact-card p { color: var(--muted); }
+
+        a.edu-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a.edu-card:hover h3 { color: var(--teal); }
+
+        .contact-card a { color: var(--teal); text-decoration: none; font-weight: 580; }
+        .contact-card a:hover { text-decoration: underline; }
+
+        .offer-lead {
+            max-width: 720px;
+            margin: -8px 0 22px;
+            font-size: 1.08rem;
+        }
+
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px;
+        }
+
+        .offer-card {
+            background: var(--card);
+            border-radius: 18px;
+            padding: 18px 16px 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(28, 25, 21, 0.05);
+        }
+
+        .offer-card i {
+            color: var(--teal);
+            font-size: 1.25rem;
+        }
+
+        .offer-card h3 {
+            font-family: "Fraunces", serif;
+            font-size: 1.08rem;
+            letter-spacing: -0.02em;
+            margin-top: 12px;
+            line-height: 1.25;
+        }
+
+        .offer-card .badge {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 580;
+            color: var(--gold-deep);
+        }
+
+        .offer-card .badge.new { color: var(--teal); }
+
+        .outcomes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .outcome {
+            background: var(--navy);
+            color: #f7f1e6;
+            border-radius: 16px;
+            padding: 16px 16px 14px;
+        }
+
+        .outcome span {
+            display: block;
+            color: var(--gold);
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .care-cta {
+            margin-top: 18px;
+            background: var(--card);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+            padding: 22px 26px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            color: white;
+            justify-content: space-between;
+            gap: 18px;
         }
-        
-        .project-info {
-            padding: 20px;
+
+        .care-cta h3 {
+            font-family: "Fraunces", serif;
+            font-size: 1.45rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
         }
-        
-        .project-info h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-        
-        .project-info p {
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-        
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-        
-        .project-tag {
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            padding: 3px 10px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            margin-bottom: 5px;
-        }
-        
-        /* Education Section */
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .education-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            height: 100%;
-        }
-        
-        .education-icon {
-            font-size: 36px;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .education-info h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            text-align: center;
-            font-size: 1.1rem;
-        }
-        
-        .education-info p {
-            text-align: center;
-            color: #666;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-        
-        /* Awards Section */
-        .awards-list {
-            list-style: none;
-        }
-        
-        .award-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            background-color: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .award-icon {
-            font-size: 28px;
-            color: var(--accent-color);
-            margin-right: 15px;
+
+        .care-cta p { color: var(--muted); }
+
+        .care-cta a {
             flex-shrink: 0;
-        }
-        
-        .award-info h3 {
-            color: var(--primary-color);
-            margin-bottom: 5px;
-            font-size: 1.1rem;
-        }
-        
-        .award-info p {
-            font-size: 0.95rem;
-        }
-        
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-        }
-        
-        .contact-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            height: 100%;
-        }
-        
-        .contact-card-icon {
-            font-size: 36px;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-        }
-        
-        .contact-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-        
-        .contact-card a {
-            color: var(--secondary-color);
+            background: var(--teal);
+            color: #f7f1e6;
             text-decoration: none;
-            word-break: break-word;
-            font-size: 0.95rem;
+            font-weight: 580;
+            border-radius: 999px;
+            padding: 12px 18px;
         }
-        
-        .contact-card a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Footer */
+
+        .care-cta a:hover { background: #165853; }
+
         footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 30px 0;
+            background: var(--navy);
+            color: #efe7d8;
+            padding: 28px 0 32px;
             text-align: center;
         }
-        
-        .social-links {
-            margin-bottom: 20px;
+
+        .socials { display: flex; justify-content: center; gap: 12px; margin-bottom: 12px; }
+
+        .socials a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: #f7f1e6;
+            border: 1px solid rgba(247, 241, 230, 0.2);
+            text-decoration: none;
         }
-        
-        .social-links a {
-            color: white;
-            font-size: 24px;
-            margin: 0 10px;
-            transition: color 0.3s;
-            display: inline-block;
+
+        .socials a:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+
+        .fine { color: rgba(239, 231, 216, 0.65); font-size: 0.9rem; }
+
+        @media (max-width: 980px) {
+            .stats, .projects, .edu-grid, .offer-grid { grid-template-columns: 1fr 1fr; }
+            .outcomes { grid-template-columns: 1fr 1fr; }
+            .contact-grid { grid-template-columns: 1fr 1fr; }
+            .about-layout { grid-template-columns: 1fr; }
         }
-        
-        .social-links a:hover {
-            color: var(--secondary-color);
-        }
-        
-        .copyright {
-            font-size: 0.9rem;
-            color: #bbb;
-        }
-        
-        /* Responsive */
-        @media (min-width: 768px) {
-            .about-text, .skills {
-                flex: 1 1 45%;
-            }
-            
-            .timeline::after {
-                left: 50%;
-                margin-left: -3px;
-            }
-            
-            .timeline-item {
-                width: 50%;
-                padding: 10px 40px;
-            }
-            
-            .timeline-item:nth-child(odd) {
-                left: 0;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 50%;
-            }
-            
-            .timeline-item:nth-child(odd)::after {
-                right: -17px;
-                left: auto;
-                top: 15px;
-            }
-            
-            .timeline-item:nth-child(even)::after {
-                left: -17px;
-                top: 15px;
-            }
-        }
-        
-        @media (max-width: 767px) {
-            .profile-section {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .contact-item {
-                justify-content: center;
-            }
-            
-            nav {
-                position: relative;
-            }
-            
-            .mobile-nav-toggle {
-                display: block;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                background-color: var(--dark-color);
-                width: 100%;
+
+        @media (max-width: 720px) {
+            .wrap { width: min(1120px, calc(100% - 28px)); }
+            .mobile-nav-toggle { display: grid; place-items: center; }
+            #nav-menu {
+                display: flex;
                 position: absolute;
-                top: 0;
                 left: 0;
-                padding: 15px 0;
-                transform: translateY(-100%);
-                transition: transform 0.3s ease-in-out;
-                z-index: 99;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-            }
-            
-            nav ul.active {
-                transform: translateY(0);
-            }
-            
-            nav ul li {
-                width: 100%;
-                text-align: center;
-            }
-            
-            nav ul li a {
-                padding: 12px;
-                width: 100%;
-            }
-            
-            .project-img {
-                height: 120px;
-            }
-            
-            .award-item {
+                right: 0;
+                top: 68px;
                 flex-direction: column;
-                align-items: center;
-                text-align: center;
+                background: #16202c;
+                padding: 0 16px;
+                border-bottom: 1px solid rgba(196, 150, 74, 0.25);
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                pointer-events: none;
+                transition: max-height 0.45s ease, opacity 0.3s ease, padding 0.3s ease;
             }
-            
-            .award-icon {
-                margin-right: 0;
-                margin-bottom: 15px;
+            #nav-menu.active {
+                max-height: 75vh;
+                opacity: 1;
+                pointer-events: auto;
+                padding: 8px 16px 16px;
+                overflow: auto;
             }
+            .hero { padding: 42px 0 64px; }
+            .hero-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+            .hero-links { justify-content: center; }
+            .stats, .projects, .edu-grid, .award-grid, .contact-grid, .offer-grid, .outcomes { grid-template-columns: 1fr; }
+            .care-cta { flex-direction: column; align-items: flex-start; }
+            .stats { margin-top: -28px; }
+            section { padding: 56px 0; }
         }
-        
-        @media (max-width: 480px) {
-            section {
-                padding: 40px 0;
+
+        nav { transition: background 0.3s ease, box-shadow 0.3s ease; }
+        nav.scrolled { background: rgba(12, 18, 26, 0.96); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18); }
+
+        #nav-menu a { position: relative; }
+        #nav-menu a::after {
+            content: "";
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            bottom: 4px;
+            height: 2px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.22s ease;
+        }
+        #nav-menu a:hover::after,
+        #nav-menu a.active::after,
+        #nav-menu a:focus-visible::after { transform: scaleX(1); }
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+        .hero-field {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(247, 241, 230, 0.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(247, 241, 230, 0.045) 1px, transparent 1px);
+            background-size: 52px 52px;
+            mask-image: linear-gradient(to bottom, #000 15%, transparent 88%);
+            animation: grid-drift 32s linear infinite;
+        }
+        .hero-field span {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: rgba(196, 150, 74, 0.75);
+            animation: floaty 7s ease-in-out infinite;
+        }
+        .hero-field span:nth-child(1) { top: 18%; left: 12%; }
+        .hero-field span:nth-child(2) { top: 30%; left: 72%; animation-delay: -1.4s; }
+        .hero-field span:nth-child(3) { top: 62%; left: 22%; animation-delay: -2.6s; }
+        .hero-field span:nth-child(4) { top: 48%; left: 84%; animation-delay: -3.2s; }
+        .hero-field span:nth-child(5) { top: 74%; left: 58%; animation-delay: -4.1s; }
+        .hero-field span:nth-child(6) { top: 16%; left: 48%; animation-delay: -5s; }
+
+        .monogram { animation: floaty 6s ease-in-out infinite; }
+        .reveal-words span { display: inline-block; opacity: 1; }
+        @media (prefers-reduced-motion: no-preference) {
+            .reveal-words span { animation: rise 0.7s ease both; }
+        }
+        .reveal-words span:nth-child(2) { animation-delay: 0.12s; }
+        .reveal-words span:nth-child(3) { animation-delay: 0.24s; }
+
+        .hero-links a, .care-cta a, .tag, .project-card, .offer-card, .contact-card, .edu-card, .award-card, .stat, .socials a {
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+        }
+        .hero-links a:hover, .care-cta a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(196, 150, 74, 0.28);
+        }
+        .tag:hover, .offer-card:hover, .contact-card:hover, .edu-card:hover, .award-card:hover, .stat:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px rgba(28, 25, 21, 0.1);
+        }
+        .project-card { overflow: hidden; }
+        .project-card:hover { transform: translateY(-6px); }
+        .project-top i { transition: transform 0.45s ease; }
+        .project-card:hover .project-top i { transform: scale(1.12); }
+
+        .motion .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .motion .reveal.in { opacity: 1; transform: none; }
+        .motion .reveal.in.tag:hover,
+        .motion .reveal.in.offer-card:hover,
+        .motion .reveal.in.contact-card:hover,
+        .motion .reveal.in.edu-card:hover,
+        .motion .reveal.in.award-card:hover,
+        .motion .reveal.in.stat:hover,
+        .motion .reveal.in.project-card:hover,
+        .motion .reveal.in.care-cta a:hover { transform: translateY(-4px); }
+        .motion .job::before {
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.55s ease;
+        }
+        .motion .job.in::before { transform: scaleY(1); }
+
+        .arch { margin-top: 28px; }
+        .arch-title {
+            font-family: "Fraunces", serif;
+            font-size: clamp(1.7rem, 3vw, 2.2rem);
+            letter-spacing: -0.03em;
+            margin: 6px 0 8px;
+        }
+        .arch-note { max-width: 640px; color: var(--muted); margin-bottom: 18px; }
+        .arch-layers {
+            list-style: none;
+            position: relative;
+            max-width: 520px;
+            display: grid;
+            gap: 10px;
+        }
+        .arch-layers::before {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 16px;
+            bottom: 16px;
+            width: 2px;
+            background: linear-gradient(var(--gold), var(--teal));
+            transform-origin: top;
+        }
+        .motion .arch:not(.in) .arch-layers::before { transform: scaleY(0); transition: transform 0.7s ease; }
+        .arch-layers li {
+            position: relative;
+            margin-left: 42px;
+            background: var(--card);
+            border-radius: 14px;
+            padding: 12px 16px;
+            box-shadow: var(--shadow);
+        }
+        .arch-layers li::before {
+            content: "";
+            position: absolute;
+            left: -34px;
+            top: 18px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--card);
+            border: 3px solid var(--gold-deep);
+        }
+        .arch-layers strong { display: block; font-family: "Fraunces", serif; }
+        .arch-layers span { color: var(--muted); font-size: 0.92rem; }
+
+        .copy-mail {
+            margin-top: 10px;
+            border: 1px solid rgba(29, 107, 102, 0.35);
+            background: transparent;
+            color: var(--teal);
+            border-radius: 999px;
+            padding: 6px 12px;
+            font: inherit;
+            font-weight: 580;
+            cursor: pointer;
+        }
+        .copy-mail:hover { background: rgba(29, 107, 102, 0.08); }
+
+        .to-top {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            width: 44px;
+            height: 44px;
+            border: 0;
+            border-radius: 50%;
+            background: var(--navy);
+            color: #f7f1e6;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(8px);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            z-index: 30;
+        }
+        .to-top.show { opacity: 1; pointer-events: auto; transform: none; }
+        .to-top:hover { background: var(--gold-deep); }
+
+        @keyframes grid-drift { to { background-position: 52px 52px; } }
+        @keyframes floaty {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(0.4em); }
+            to { opacity: 1; transform: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
             }
-            
-            .profile-img {
-                width: 100px;
-                height: 100px;
-                font-size: 36px;
-            }
-            
-            .timeline-item {
-                padding-left: 50px;
-            }
-            
-            .timeline-content {
-                padding: 12px 15px;
-            }
-            
-            .education-grid, .contact-grid {
-                grid-template-columns: 1fr;
+            .motion .reveal, .motion .job::before, .arch-layers::before {
+                opacity: 1 !important;
+                transform: none !important;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="profile-section">
-                    <div class="profile-img">NP</div>
-                    <div class="profile-info">
-                        <h1>Nitya Nand Pandey</h1>
-                        <p>Mobile Developer & Tech Lead</p>
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <a href="mailto:07nitya@gmail.com">07nitya@gmail.com</a>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-phone"></i>
-                                <a href="tel:+919411294189">+91-9411294189</a>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fab fa-linkedin"></i>
-                                <a href="https://www.linkedin.com/in/07nitya/" target="_blank">linkedin.com/in/07nitya</a>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fab fa-github"></i>
-                                <a href="https://github.com/NityaNandPandey" target="_blank">github.com/NityaNandPandey</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    
-    <!-- Navigation -->
-    <button class="mobile-nav-toggle" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-    </button>
     <nav>
-        <div class="container">
+        <div class="wrap nav-bar">
+            <a class="brand" href="#top">Nitya <span>Nand</span></a>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul id="nav-menu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#education">Education</a></li>
+                <li><a href="#healthcare">Healthcare</a></li>
+                <li><a href="#schools">Schools</a></li>
+                <li><a href="#insurance">Insurance</a></li>
+                <li><a href="#fintech">Fintech</a></li>
+                <li><a href="#commerce">Commerce</a></li>
+                <li><a href="#education">Learning</a></li>
                 <li><a href="#awards">Awards</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
-    
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Me</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Seasoned IT professional with 13+ years of experience in designing, developing, testing, and implementing mobile technology-driven enterprise applications. Adept at full project life cycle implementation, delivering high-performance solutions for dynamic business needs.
-					<p>Passionate and results-driven Android Developer, Tech Lead, and Team Manager with 8+ years of expertise in crafting clean, efficient, and scalable code. Experienced in leading development teams, managing tasks, and driving project execution from concept to deployment. Skilled in team leadership, task management, mentoring, and strategic planning to ensure timely and high-quality software delivery.</p>
-					<p>Proficient in Native Android application development across all stages of the software development lifecycle. Strong technical expertise in multiple programming languages, including HTML5, Angular Typescripts, JavaScript, CSS, Java (OOP), Kotlin , Flutter  FCM, and GraphQL. Committed to building user-friendly, intuitive, and high-performance applications that enhance user experience and business efficiency.</p>
-</p>
-                </div>
-                <div class="skills">
-                    <div class="skill-category">
-                        <h3>Mobile Technologies</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Dart</span>
-                            <span class="skill-tag">Flutter</span>
-                            <span class="skill-tag">Android</span>
-                            <span class="skill-tag">Kotlin</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">iOS</span>
-                            <span class="skill-tag">Swift</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Design Patterns</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">MVC</span>
-                            <span class="skill-tag">MVP</span>
-                            <span class="skill-tag">MVVM</span>
-                            <span class="skill-tag">Singleton</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Web Services</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">REST API</span>
-                            <span class="skill-tag">SOAP API</span>
-                            <span class="skill-tag">GraphQL</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Databases</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">SQLite</span>
-                            <span class="skill-tag">Room Database</span>
-                            <span class="skill-tag">Firebase Database</span>
-                            <span class="skill-tag">SQL</span>
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">MongoDB</span>
-                        </div>
-                    </div>
+
+    <header class="hero" id="top">
+        <div class="hero-field" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="wrap hero-grid">
+            <div class="monogram" aria-hidden="true">NP</div>
+            <div>
+                <p class="eyebrow">Solution · Enterprise · Application Architect</p>
+                <h1 class="reveal-words"><span>Nitya</span> <span>Nand</span> <span>Pandey</span></h1>
+                <p class="role">Tech Lead at Care Health Insurance. I design scalable, secure architecture for mobile, backend, and enterprise platforms.</p>
+                <div class="hero-links">
+                    <a href="mailto:07nitya@gmail.com"><i class="fas fa-envelope"></i>07nitya@gmail.com</a>
+                    <a href="tel:+919411294189"><i class="fas fa-phone"></i>+91-9411294189</a>
+                    <a href="https://www.linkedin.com/in/07nitya/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+                    <a href="https://github.com/NityaNandPandey" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+                    <a href="#contact"><i class="fas fa-map-marker-alt"></i>Noida, Uttar Pradesh</a>
                 </div>
             </div>
         </div>
-    </section>
-    
-    <!-- Experience Section -->
-    <section id="experience" style="background-color: #f9f9f9;">
-        <div class="container">
-            <div class="section-title">
-                <h2>Work Experience</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">August 2023 - Present</div>
-                        <div class="timeline-role">Tech Lead</div>
-                        <div class="timeline-company">Care Health Insurance (Religare), Gurgaon</div>
-                        <div class="timeline-description">
-                            <p>Led development of comprehensive healthcare applications providing cashless treatment access at 24,800+ network hospitals.</p>
-                            <p>Conducted feasibility studies, architecture design, and implemented industry best practices.</p>
-                            <p>Led coding, UI design, and testing for multiple apps (Care Health, Instabiz, Faveo Plus).</p>
-                            <p>Oversaw deployment to Play Store for both Android and iOS platforms.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">March 2020 - August 2023</div>
-                        <div class="timeline-role">Mobile Team Leader</div>
-                        <div class="timeline-company">EServify Pvt Ltd (Onedios), Noida</div>
-                        <div class="timeline-description">
-                            <p>Led development for OneDios, India's single window to all brands, their warranties and AMCs.</p>
-                            <p>Conducted feasibility studies, architecture design, and implemented best practices.</p>
-                            <p>Led development for multiple applications (OneDios, OneDios Business Partner, Pigeon Partner, OnePro CRM, Inalsa Connect).</p>
-                            <p>Managed deployment to Play Store for both Android and iOS platforms.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">November 2016 - March 2020</div>
-                        <div class="timeline-role">Senior Android Application Developer</div>
-                        <div class="timeline-company">Optimization Software Technologies, Sahibabad</div>
-                        <div class="timeline-description">
-                            <p>Worked as Project Team Lead collaborating with US-based client stakeholders.</p>
-                            <p>Designed and developed architecture for mobile applications across various domains.</p>
-                            <p>Successfully delivered 25+ mobile applications to clients.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">November 2015 - October 2016</div>
-                        <div class="timeline-role">Android Application Developer</div>
-                        <div class="timeline-company">IMedia Designs & Technology Inc, Noida</div>
-                        <div class="timeline-description">
-                            <p>Developed applications for Canadian clients in travel and hotel booking domains.</p>
-                            <p>Conducted feasibility studies, architecture design, coding, and testing.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">February 2013 - November 2014</div>
-                        <div class="timeline-role">Android Developer</div>
-                        <div class="timeline-company">Appsquadz Technologies Pvt Ltd, Noida</div>
-                        <div class="timeline-description">
-                            <p>Developed 16+ Android applications across social, e-commerce, travel, and chat domains.</p>
-                            <p>Conducted feasibility studies, architecture design, coding, and testing.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    </header>
+
+    <div class="wrap">
+        <div class="stats">
+            <div class="stat"><strong>14+</strong><span>years building and leading software</span></div>
+            <div class="stat"><strong>5M+</strong><span>downloads on Care Health</span></div>
+            <div class="stat"><strong>8</strong><span>production apps moved to Flutter</span></div>
+            <div class="stat"><strong>25+</strong><span>enterprise apps delivered for US clients</span></div>
         </div>
-    </section>
-	
-	   <div class="slider-container">
-        <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
-        <p>Value: <span id="sliderValue">50</span></p>
     </div>
-    
-    <!-- Projects Section -->
+
+    <section id="about">
+        <div class="wrap">
+            <p class="section-kicker">Profile</p>
+            <h2>About Me</h2>
+            <div class="about-layout">
+                <div class="about-copy">
+                    <p>Solution Architect, Enterprise Architect, and Application Architect with 14+ years in software engineering, enterprise application architecture, solution design, and technical leadership. I create technical, solution, and integration architecture that stays scalable, secure, resilient, and high-performance across mobile, backend, and enterprise platforms.</p>
+                    <p>Tech Lead at Care Health Insurance, leading architecture, solution design, and delivery for Care Health, Instabiz, and Faveo Plus. The work covers digital insurance and healthcare workflows, including cashless treatment, claims processing, policy renewals, and third-party API integrations that connect providers, insurance platforms, and external wellness services.</p>
+                    <p>I turn business requirements into technology solutions: architectural strategy, technology evaluation, system design, application modernization, API and system integration, database architecture, application security, performance, cloud infrastructure, and production engineering. Hands-on across Android, iOS, Flutter, Kotlin Multiplatform, React Native, Node.js, Java, Spring Boot, and Hibernate.</p>
+                    <p>Delivery spans healthcare, health insurance, fintech, education, warranty management, social networking, e-commerce, travel, and communication for clients in India, the United States, and Canada. I set architecture standards, technology roadmaps, and engineering practices, and I mentor teams from design through production.</p>
+                </div>
+                <div class="skill-panel">
+                    <div class="skill-group">
+                        <h3>Architecture</h3>
+                        <div class="tags">
+                            <span class="tag">Solution Architecture</span>
+                            <span class="tag">Enterprise Architecture</span>
+                            <span class="tag">Integration Architecture</span>
+                            <span class="tag">Clean Architecture</span>
+                            <span class="tag">MVVM</span>
+                            <span class="tag">MVC</span>
+                            <span class="tag">MVP</span>
+                            <span class="tag">Repository</span>
+                            <span class="tag">Modular</span>
+                            <span class="tag">Redux Toolkit</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Mobile</h3>
+                        <div class="tags">
+                            <span class="tag">Kotlin</span>
+                            <span class="tag">Java</span>
+                            <span class="tag">Jetpack</span>
+                            <span class="tag">Jetpack Compose</span>
+                            <span class="tag">Swift</span>
+                            <span class="tag">SwiftUI</span>
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Dart</span>
+                            <span class="tag">Kotlin Multiplatform</span>
+                            <span class="tag">React Native</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Backend</h3>
+                        <div class="tags">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Express.js</span>
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">Hibernate</span>
+                            <span class="tag">REST</span>
+                            <span class="tag">GraphQL</span>
+                            <span class="tag">SOAP</span>
+                            <span class="tag">Microservices</span>
+                            <span class="tag">WebSocket</span>
+                            <span class="tag">API Gateway</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Data, Cloud & Delivery</h3>
+                        <div class="tags">
+                            <span class="tag">MySQL</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">SQLite</span>
+                            <span class="tag">Room</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Redis</span>
+                            <span class="tag">AWS</span>
+                            <span class="tag">CI/CD</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">Jira</span>
+                            <span class="tag">Agile</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Security</h3>
+                        <div class="tags">
+                            <span class="tag">JWT</span>
+                            <span class="tag">OAuth</span>
+                            <span class="tag">SSL/TLS</span>
+                            <span class="tag">Certificate Pinning</span>
+                            <span class="tag">Encryption</span>
+                            <span class="tag">VAPT</span>
+                            <span class="tag">OWASP</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Domains</h3>
+                        <div class="tags">
+                            <span class="tag">Insurance</span>
+                            <span class="tag">Healthcare</span>
+                            <span class="tag">Banking & Finance</span>
+                            <span class="tag">CRM</span>
+                            <span class="tag">Warranties</span>
+                            <span class="tag">Travel</span>
+                            <span class="tag">E-commerce</span>
+                            <span class="tag">Education</span>
+                            <span class="tag">ERP</span>
+                            <span class="tag">OTT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="band">
+        <div class="wrap">
+            <p class="section-kicker">Career</p>
+            <h2>Work Experience</h2>
+            <div class="timeline">
+                <article class="job">
+                    <div class="when">August 2023 – Present</div>
+                    <h3>Tech Lead · Solution & Enterprise Architect</h3>
+                    <div class="where">Care Health Insurance (Religare), Gurgaon</div>
+                    <ul>
+                        <li>Lead architecture, solution design, and technical delivery for Care Health, Instabiz, and Faveo Plus.</li>
+                        <li>The role covers cashless treatment across 24,800+ network hospitals, claims processing, policy renewals, and wellness API integrations that connect providers, the insurance platform, and external services.</li>
+                        <li>Set application and system architecture: module boundaries, API contracts, and reusable components aligned to the business goals.</li>
+                        <li>Migrated the three apps from Java native to Flutter so Android and iOS share one codebase. Care Health passed 5,000,000 downloads, and Faveo Plus passed 100,000.</li>
+                        <li>Migrated the backend from PHP to Node.js, and moved the servers from on-prem to AWS.</li>
+                        <li>Integrated UPI, wallets, and net banking with JWT/OAuth, biometrics, secure storage, and SSL pinning for VAPT reviews.</li>
+                        <li>Publish the apps on the Play Store and App Store, and track production issues in Firebase Crashlytics with product, QA, and security.</li>
+                    </ul>
+                </article>
+                <article class="job">
+                    <div class="when">March 2020 – August 2023</div>
+                    <h3>Mobile Team Leader</h3>
+                    <div class="where">EServify Pvt. Ltd. (OneDios), Noida</div>
+                    <ul>
+                        <li>Directed a five-app warranty and service platform: OneDios, OnePro CRM, Pigeon Partner, OneDios Business Partner, and Inalsa Connect. Inalsa Connect passed 10,000 downloads.</li>
+                        <li>Moved the legacy native apps to Flutter and set architecture, coding standards, unit tests, and Git reviews with product and QA.</li>
+                        <li>Connected REST APIs, Firebase, Google APIs, notifications, and third-party warranty flows, including media processing.</li>
+                        <li>Released all five apps to the Google Play Store and Apple App Store across multiple environments.</li>
+                    </ul>
+                </article>
+                <article class="job">
+                    <div class="when">November 2016 – March 2020</div>
+                    <h3>Senior Android Application Developer · Project Team Lead</h3>
+                    <div class="where">Optimization Software Technologies, Sahibabad</div>
+                    <ul>
+                        <li>Partnered with US business, IT, and application stakeholders to scope 25+ enterprise mobile applications.</li>
+                        <li>Designed architecture for those apps, including Docknit, HerDUM Syst, Biometric Associates LP, Laundryking4u, In Groups, In Locality, Videocon CCTV Security, and Help On Call.</li>
+                        <li>Owned client communication and timelines. Earned Best Overall App Android (H2 2017) and Most Innovative Feature App for HerDUM Syst at IIT Delhi.</li>
+                    </ul>
+                </article>
+                <article class="job">
+                    <div class="when">November 2015 – October 2016</div>
+                    <h3>Android Application Developer</h3>
+                    <div class="where">IMedia Designs & Technology Inc, Noida</div>
+                    <ul>
+                        <li>Built Android booking products in travel and hotel domains for Canadian clients.</li>
+                        <li>Completed feasibility, architecture, coding, unit testing, and maintenance in Java, using Google APIs and REST.</li>
+                    </ul>
+                </article>
+                <article class="job">
+                    <div class="when">February 2012 – November 2015</div>
+                    <h3>Android Developer</h3>
+                    <div class="where">Appsquadz Technologies & Appbulous Software, Noida</div>
+                    <ul>
+                        <li>Built 16+ Android applications across social networking, e-commerce, travel, and chat.</li>
+                        <li>Finished a six-month enterprise mobile training program, then shipped those applications through design, build, and test.</li>
+                    </ul>
+                </article>
+            </div>
+            <div class="arch">
+                <p class="section-kicker">How the apps are shaped</p>
+                <h2 class="arch-title">Application layers</h2>
+                <p class="arch-note">Screens stay thin. Each layer talks only to the one below it, from the interface down to the API.</p>
+                <ol class="arch-layers">
+                    <li><strong>UI</strong><span>Flutter, Android, and iOS</span></li>
+                    <li><strong>ViewModel</strong><span>MVVM and screen state</span></li>
+                    <li><strong>Use case</strong><span>Business rules</span></li>
+                    <li><strong>Repository</strong><span>One place for data</span></li>
+                    <li><strong>API</strong><span>Node.js and REST</span></li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
     <section id="projects">
-        <div class="container">
-            <div class="section-title">
-                <h2>Featured Projects</h2>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-img"><i class="fas fa-hand-holding-medical"></i></div>
-                    <div class="project-info">
-                        <h3>Care Health - Customer App</h3>
-                        <p>Care Health Insurance (CHI) is a specialized Health Insurer offering health insurance services to employees of corporates, individual customers and for financial inclusion as well. With CHI’s operating philosophy being based on the principal tenet of ‘consumer-centricity’, the company has consistently invested in the effective application of technology to deliver excellence in customer servicing, product innovation and value-for-money services.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Android</span>
-                            <span class="project-tag">iOS</span>
-							 <span class="project-tag">Java</span>
-                            <span class="project-tag">Firebase</span>
-                            <span class="project-tag">Insurance</span>
-							<span class="project-tag">Downloads-5,000,000+ downloads</span>
-                        </div>
+        <div class="wrap">
+            <p class="section-kicker">Selected work</p>
+            <h2>Featured Projects</h2>
+            <div class="projects">
+                <article class="project-card">
+                    <div class="project-top tone-1"><i class="fas fa-hand-holding-medical"></i></div>
+                    <div class="project-body">
+                        <h3>Care Health</h3>
+                        <p>Customer app for cashless treatment across 24,800+ network hospitals, plus policy and claims workflows. Native Android and iOS codebases moved to one Flutter codebase. Over 5,000,000 downloads.</p>
+                        <div class="tags"><span class="tag">Flutter</span><span class="tag">Android</span><span class="tag">iOS</span><span class="tag">Firebase</span><span class="tag">5,000,000+ downloads</span></div>
                     </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img"><i class="fas fa-cogs"></i></div>
-                    <div class="project-info">
+                </article>
+                <article class="project-card">
+                    <div class="project-top tone-2"><i class="fas fa-handshake"></i></div>
+                    <div class="project-body">
                         <h3>Faveo Plus</h3>
-                        <p>This application is for exclusively Care Health Insurance Limited (Formerly known as Religare Health Insurance Company Limited) partners. Get to know about your business figures, commission paid, renewals, proposals and much more features in a seamless manner. Experience the hassle free journey of end to end transaction for policy issuance as well as renewals. Get to know about each product of CHI in more easy and fascinating way. Overall, this app can take your whole journey with CHI in your pocket.</p>
-                        <div class="project-tags">
-							<span class="project-tag">Flutter</span>
-                            <span class="project-tag">Android</span>
-                            <span class="project-tag">iOS</span>
-							 <span class="project-tag">Java</span>
-                            <span class="project-tag">Firebase</span>
-							 <span class="project-tag">Flutter Web</span>
-                            <span class="project-tag">Care Agency </span>
-							<span class="project-tag">100,000+ downloads</span>
-                        </div>
+                        <p>Partner app for Care Health Insurance. Business figures, commission, renewals, proposals, and end-to-end policy issuance. Over 100,000 downloads.</p>
+                        <div class="tags"><span class="tag">Flutter</span><span class="tag">Android</span><span class="tag">iOS</span><span class="tag">Flutter Web</span><span class="tag">100,000+ downloads</span></div>
                     </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img"><i class="fas fa-laptop-code"></i></div>
-                    <div class="project-info">
+                </article>
+                <article class="project-card">
+                    <div class="project-top tone-3"><i class="fas fa-briefcase"></i></div>
+                    <div class="project-body">
                         <h3>InstaBiz</h3>
-                        <p>This application is exclusively for Care Health Insurance Limited (Formerly known as Religare Health Insurance Company Limited) employees and its Partner’s employees. CHI employee can issue policy on behalf of his/her partner at any instant whereas Partner’s employees can also issue the policy without any paper work involved. And hence get ready to experience the hassle free journey of end to end transaction for policy issuance. Get to know about each product of CHI in more easy & fascinating way. Overall, this app can take the whole journey of policy issuance in your pocket. Install & Explorethe new technology world of CHI</p>
-                        <div class="project-tags">
-                            	<span class="project-tag">Flutter</span>
-                            <span class="project-tag">Android</span>
-                            <span class="project-tag">iOS</span>
-							 <span class="project-tag">Java</span>
-                            <span class="project-tag">Firebase</span>
-							 <span class="project-tag">Flutter Web</span>
-                            <span class="project-tag">Care banka </span>
-							<span class="project-tag">100,000+ downloads</span>
-                        </div>
+                        <p>Policy issuance for Care Health employees and partner staff, without the paperwork. Over 100,000 downloads.</p>
+                        <div class="tags"><span class="tag">Flutter</span><span class="tag">Android</span><span class="tag">iOS</span><span class="tag">Flutter Web</span><span class="tag">100,000+ downloads</span></div>
                     </div>
-                </div>
-				<div class="project-card">
-                    <div class="project-img"><i class="fas fa-laptop-code"></i></div>
-                    <div class="project-info">
-                        <h3>Max MyHealth -by Max Hospitals</h3>
-                        <p>Discover a new way to manage your health effortlessly with Max Hospital's Max MyHealth app. Access all the trusted services of Max Healthcare (Max Hospitals, BLK-Max Hospital, Nanavati Max Hospital) in one place—whether it’s booking a consultation, ordering lab tests, accessing medical records, or scheduling home healthcare services.</p>
-                        <div class="project-tags">
-							<span class="project-tag">Flutter</span>
-                            <span class="project-tag">Android</span>
-                            <span class="project-tag">iOS</span>
-							 <span class="project-tag">Flutter Web</span>
-                            <span class="project-tag">Java</span>
-                            <span class="project-tag">Firebase</span>
-							<span class="project-tag">Max Healthcare</span>
-							<span class="project-tag">1,000,000+ downloads</span>
-                        </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-top tone-4"><i class="fas fa-heartbeat"></i></div>
+                    <div class="project-body">
+                        <h3>Max MyHealth</h3>
+                        <p>Max Healthcare services in one place: consultations, lab tests, medical records, and home healthcare across Max, BLK-Max, and Nanavati Max. Over 1,000,000 downloads.</p>
+                        <div class="tags"><span class="tag">Flutter</span><span class="tag">Android</span><span class="tag">iOS</span><span class="tag">1,000,000+ downloads</span></div>
                     </div>
-                </div>
-				<div class="project-card">
-                    <div class="project-img"><i class="fas fa-laptop-code"></i></div>
-                    <div class="project-info">
+                </article>
+                <article class="project-card">
+                    <div class="project-top tone-5"><i class="fas fa-user-md"></i></div>
+                    <div class="project-body">
                         <h3>Max MyHealth Doctor</h3>
-                        <p>Max Healthcare’s new mobile app for its Doctors at Max Hospitals, BLK-Max Hospital and Nanavati Max Hospital, empowers them to manage their consultations (both video and in-hospital) and schedule more effectively..</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Flutter</span>
-                            <span class="project-tag">Android</span>
-                            <span class="project-tag">iOS</span>
-                            <span class="project-tag">Java</span>
-                            <span class="project-tag">Firebase</span>
-							<span class="project-tag">Max Healthcare</span>
-							<span class="project-tag">5,000+ downloads</span>
-                        </div>
+                        <p>Doctor app for video and in-hospital consultations and schedules at Max, BLK-Max, and Nanavati Max. Over 5,000 downloads.</p>
+                        <div class="tags"><span class="tag">Flutter</span><span class="tag">Android</span><span class="tag">iOS</span><span class="tag">5,000+ downloads</span></div>
                     </div>
-                </div>
-				<div class="project-card">
-                    <div class="project-img"><i class="fas fa-laptop-code"></i></div>
-                    <div class="project-info">
+                </article>
+                <article class="project-card">
+                    <div class="project-top tone-6"><i class="fas fa-clipboard-check"></i></div>
+                    <div class="project-body">
                         <h3>Max QMS</h3>
-                        <p>Max QMS provides the platform to streamline processes and achieving operational excellence through the automation of quality workflows and processes. Max QMS's focus is on supporting accreditation and standards requirements, as well as improving operational outcomes..</p>
-                        <div class="project-tags">
-                             <span class="project-tag">Flutter</span>
-                            <span class="project-tag">Android</span>
-                            <span class="project-tag">iOS</span>
-                            <span class="project-tag">Java</span>
-                            <span class="project-tag">Firebase</span>
-							<span class="project-tag">Max Healthcare</span>
-							<span class="project-tag">5,000+ downloads</span>
-                        </div>
+                        <p>Quality workflows for accreditation, standards, and operational outcomes at Max Healthcare. Over 5,000 downloads.</p>
+                        <div class="tags"><span class="tag">Flutter</span><span class="tag">Android</span><span class="tag">iOS</span><span class="tag">5,000+ downloads</span></div>
                     </div>
-                </div>
-				<div class="project-card">
-                    <div class="project-img"><i class="fas fa-laptop-code"></i></div>
-                    <div class="project-info">
-                        <h3>OneDios: Services Supermarket</h3>
-                        <p>BOOK A SERVICE One can book a service in 60 seconds using OneDios.Check the status of your service request on the App anytime, anywhere!.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Android</span>
-                            <span class="project-tag">Java</span>
-                            <span class="project-tag">Firebase</span>
-							<span class="project-tag">BOOK A SERVICE 60 seconds</span>
-							<span class="project-tag">100,000+ downloads</span>
-                        </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-top tone-3"><i class="fas fa-tools"></i></div>
+                    <div class="project-body">
+                        <h3>OneDios</h3>
+                        <p>Book an appliance service in about 60 seconds and track the request from anywhere. Over 100,000 downloads.</p>
+                        <div class="tags"><span class="tag">Android</span><span class="tag">Java</span><span class="tag">Firebase</span><span class="tag">100,000+ downloads</span></div>
                     </div>
-                </div>
-				<div class="project-card">
-                    <div class="project-img"><i class="fas fa-laptop-code"></i></div>
-                    <div class="project-info">
+                </article>
+                <article class="project-card">
+                    <div class="project-top tone-2"><i class="fas fa-store"></i></div>
+                    <div class="project-body">
                         <h3>OneDios Business Partner</h3>
-                        <p>Single mobile app to register and manage products which you have bought. OneDios names these products as Digital Products.</p>
-                        <div class="project-tags">
-                             <span class="project-tag">Flutter</span>
-                            <span class="project-tag">Android</span>
-                            <span class="project-tag">iOS</span>
-                            <span class="project-tag">Java</span>
-                            <span class="project-tag">Firebase</span>
-							<span class="project-tag">REQUESTS TO OEM</span>
-							<span class="project-tag">10,000+ downloads</span>
-                        </div>
+                        <p>Register and manage purchased products, the digital products in the OneDios after-sales network. Over 10,000 downloads.</p>
+                        <div class="tags"><span class="tag">Flutter</span><span class="tag">Android</span><span class="tag">iOS</span><span class="tag">10,000+ downloads</span></div>
                     </div>
-                </div>
-				<div class="project-card">
-                    <div class="project-img"><i class="fas fa-laptop-code"></i></div>
-                    <div class="project-info">
+                </article>
+                <article class="project-card">
+                    <div class="project-top tone-5"><i class="fas fa-dove"></i></div>
+                    <div class="project-body">
                         <h3>Pigeon Partner</h3>
-                        <p>Pigeon Partner App: Your Direct Connection to Brand. Easily raise installation and service requests directly to the brand, manage digital bills for hassle-free after-sales service, and receive real-time updates on your service requests. Simplify communication and rate your service experience, all in one convenient mobile app.</p>
-                        <div class="project-tags">
-                              <span class="project-tag">Flutter</span>
-                            <span class="project-tag">Android</span>
-                            <span class="project-tag">iOS</span>
-                            <span class="project-tag">Java</span>
-                            <span class="project-tag">Firebase</span>
-							<span class="project-tag">REQUESTS TO OEM</span>
-							<span class="project-tag">10,000+ downloads</span>
-                        </div>
+                        <p>Raise installation and service requests to the brand, keep digital bills, and follow status in real time. Over 10,000 downloads.</p>
+                        <div class="tags"><span class="tag">Flutter</span><span class="tag">Android</span><span class="tag">iOS</span><span class="tag">10,000+ downloads</span></div>
                     </div>
-                </div>
-				<div class="project-card">
-                    <div class="project-img"><i class="fas fa-laptop-code"></i></div>
-                    <div class="project-info">
+                </article>
+                <article class="project-card">
+                    <div class="project-top tone-1"><i class="fas fa-plug"></i></div>
+                    <div class="project-body">
                         <h3>Inalsa Connect</h3>
-                        <p>Inalsa connect App enables you to quickly log a service complaint for any Inalsa product you may have and monitor its status..</p>
-                        <div class="project-tags">
-                              <span class="project-tag">Flutter</span>
-                            <span class="project-tag">Android</span>
-                            <span class="project-tag">iOS</span>
-                            <span class="project-tag">Java</span>
-                            <span class="project-tag">Firebase</span>
-							<span class="project-tag">Inalsa Customer App</span>
-							<span class="project-tag">10,000+ downloads</span>
-                        </div>
+                        <p>Log a service complaint for an Inalsa product and follow its status. Over 10,000 downloads.</p>
+                        <div class="tags"><span class="tag">Flutter</span><span class="tag">Android</span><span class="tag">iOS</span><span class="tag">10,000+ downloads</span></div>
                     </div>
-                </div><div class="project-card">
-                    <div class="project-img"><i class="fas fa-laptop-code"></i></div>
-                    <div class="project-info">
+                </article>
+                <article class="project-card">
+                    <div class="project-top tone-2"><i class="fas fa-lightbulb"></i></div>
+                    <div class="project-body">
                         <h3>HerDUM Syst</h3>
-                        <p>Innovative application that received recognition for most innovative features.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Android</span>
-                            <span class="project-tag">Java</span>
-                            <span class="project-tag">Firebase</span>
-                        </div>
+                        <p>Enterprise mobile application recognized as Most Innovative Feature App, presented at IIT Delhi.</p>
+                        <div class="tags"><span class="tag">Android</span><span class="tag">Java</span><span class="tag">Firebase</span></div>
                     </div>
-                </div>
-				<div class="project-card">
-                    <div class="project-img"><i class="fas fa-laptop-code"></i></div>
-                    <div class="project-info">
+                </article>
+                <article class="project-card">
+                    <div class="project-top tone-6"><i class="fas fa-id-card"></i></div>
+                    <div class="project-body">
                         <h3>baiMobile</h3>
-                        <p>The baiMobile® Credentials app is a background service that provides support for a variety of smartcard readers from various reader vendors. Credentials is leveraged by those applications that embed the baiMobile® Framework for Credential Services (a set of SDK libraries).</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Android</span>
-                            <span class="project-tag">Java</span>
-                            <span class="project-tag">C++</span>
-                        </div>
+                        <p>Background credentials service for smartcard readers, used by apps that embed the baiMobile Framework for Credential Services.</p>
+                        <div class="tags"><span class="tag">Android</span><span class="tag">Java</span><span class="tag">C++</span></div>
                     </div>
-                </div>
-				
-				
-				
+                </article>
             </div>
-        </div>
-    </section>
-    
-    <!-- Education Section -->
-    <section id="education" style="background-color: #f9f9f9;">
-        <div class="container">
-            <div class="section-title">
-                <h2>Education & Certifications</h2>
-            </div>
-            <div class="education-grid">
-                <div class="education-card">
-                    <div class="education-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="education-info">
-                        <h3>B.Tech in Information Technology</h3>
-                        <p>Uttar Pradesh Technical University</p>
-                    </div>
-                </div>
-                <div class="education-card">
-                    <div class="education-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="education-info">
-                        <h3>Oracle Certified Professional Java SE Programmer</h3>
-                        <p>OCPJP (1Z0-808®)</p>
-                    </div>
-                </div>
-                <div class="education-card">
-                    <div class="education-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="education-info">
-                        <h3>Certification Level 1</h3>
-                        <p>Angular Developers</p>
-                    </div>
-                </div>
-                <div class="education-card">
-                    <div class="education-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="education-info">
-                        <h3>Infosys Certified Flutter Developer</h3>
-                        <p>Flutter Development</p>
-                    </div>
+            <div class="more-apps">
+                <h3>Also delivered</h3>
+                <div class="tags">
+                    <span class="tag">OnePro CRM</span>
+                    <span class="tag">Docknit</span>
+                    <span class="tag">Sailoons.com</span>
+                    <span class="tag">Document Management System</span>
+                    <span class="tag">Biometric Associates</span>
+                    <span class="tag">Laundryking4u</span>
+                    <span class="tag">Help On Call</span>
+                    <span class="tag">Videocon CCTV</span>
+                    <span class="tag">In Groups</span>
+                    <span class="tag">In Locality</span>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Awards Section -->
+
+    <section id="healthcare" class="band">
+        <div class="wrap">
+            <p class="section-kicker">For healthcare teams</p>
+            <h2>Digital solutions for care</h2>
+            <p class="offer-lead">We help hospitals, clinics, diagnostic centers, healthcare startups, and medical businesses build modern digital solutions.</p>
+            <div class="offer-grid">
+                <article class="offer-card"><i class="fas fa-hospital"></i><h3>Hospital Management Systems</h3></article>
+                <article class="offer-card"><i class="fas fa-house-medical"></i><h3>Clinic Management Software</h3></article>
+                <article class="offer-card"><i class="fas fa-user-doctor"></i><h3>Patient & Doctor Apps</h3></article>
+                <article class="offer-card"><i class="fas fa-video"></i><h3>Telemedicine Platforms</h3></article>
+                <article class="offer-card"><i class="fas fa-robot"></i><h3>AI Chatbots & Assistants</h3></article>
+                <article class="offer-card"><i class="fas fa-file-medical"></i><h3>EMR / EHR Solutions</h3></article>
+                <article class="offer-card"><i class="fas fa-calendar-check"></i><h3>Appointment & Billing Systems</h3></article>
+                <article class="offer-card"><i class="fas fa-chart-line"></i><h3>Healthcare Analytics & Dashboards</h3></article>
+                <article class="offer-card"><i class="fas fa-code"></i><h3>Custom Healthcare Software</h3></article>
+                <article class="offer-card"><i class="fas fa-plug"></i><h3>Business Automation & API Integrations</h3></article>
+            </div>
+            <div class="outcomes">
+                <div class="outcome"><span>01</span>Reduce manual work</div>
+                <div class="outcome"><span>02</span>Improve patient experience</div>
+                <div class="outcome"><span>03</span>Automate operations</div>
+                <div class="outcome"><span>04</span>Make better decisions</div>
+            </div>
+            <div class="care-cta">
+                <div>
+                    <h3>Planning to digitize or upgrade?</h3>
+                    <p>Have a healthcare project or idea? Let's build it together.</p>
+                </div>
+                <a href="mailto:07nitya@gmail.com">Let's talk</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="schools">
+        <div class="wrap">
+            <p class="section-kicker">For schools and colleges</p>
+            <h2>Digital solutions for education</h2>
+            <p class="offer-lead">We help schools, colleges, and education groups run students, academics, fees, exams, and campus life in one system.</p>
+            <div class="offer-grid">
+                <article class="offer-card"><i class="fas fa-user-graduate"></i><h3>Student Information</h3><span class="badge">Core</span></article>
+                <article class="offer-card"><i class="fas fa-book"></i><h3>Academics</h3><span class="badge">Core</span></article>
+                <article class="offer-card"><i class="fas fa-indian-rupee-sign"></i><h3>Fees Collection</h3><span class="badge">Core</span></article>
+                <article class="offer-card"><i class="fas fa-users"></i><h3>Human Resource</h3><span class="badge">Core</span></article>
+                <article class="offer-card"><i class="fas fa-file-pen"></i><h3>Offline Exams</h3><span class="badge">Core</span></article>
+                <article class="offer-card"><i class="fas fa-certificate"></i><h3>Certificates</h3><span class="badge">Core</span></article>
+                <article class="offer-card"><i class="fas fa-id-card"></i><h3>ID Card Designer</h3><span class="badge">Core</span></article>
+                <article class="offer-card"><i class="fas fa-graduation-cap"></i><h3>Online Courses (LMS)</h3><span class="badge new">New</span></article>
+                <article class="offer-card"><i class="fas fa-utensils"></i><h3>Canteen & Cashless Campus</h3><span class="badge new">New</span></article>
+                <article class="offer-card"><i class="fas fa-flask"></i><h3>Lab Management</h3><span class="badge new">New</span></article>
+                <article class="offer-card"><i class="fas fa-door-open"></i><h3>Classrooms & Rooms</h3><span class="badge new">New</span></article>
+                <article class="offer-card"><i class="fas fa-user-group"></i><h3>Alumni & Reunions</h3><span class="badge new">New</span></article>
+                <article class="offer-card"><i class="fas fa-file-import"></i><h3>Import Hub & ERP Switch</h3><span class="badge new">New</span></article>
+                <article class="offer-card"><i class="fas fa-rotate-left"></i><h3>Undo Center</h3><span class="badge new">New</span></article>
+                <article class="offer-card"><i class="fas fa-chart-pie"></i><h3>360° Reports Suite</h3><span class="badge new">New</span></article>
+                <article class="offer-card"><i class="fas fa-compass"></i><h3>ERP Navigator</h3><span class="badge new">New</span></article>
+                <article class="offer-card"><i class="fas fa-video"></i><h3>CCTV Live View</h3></article>
+                <article class="offer-card"><i class="fas fa-comments"></i><h3>Parent–Teacher Chat</h3></article>
+                <article class="offer-card"><i class="fas fa-clipboard-list"></i><h3>Surveys & Feedback</h3></article>
+                <article class="offer-card"><i class="fas fa-palette"></i><h3>Engagement & Creatives</h3></article>
+                <article class="offer-card"><i class="fas fa-shield-halved"></i><h3>Compliance & Governance</h3></article>
+                <article class="offer-card"><i class="fas fa-laptop"></i><h3>Online Exams Pro (CBT)</h3></article>
+                <article class="offer-card"><i class="fas fa-bullseye"></i><h3>Admission CRM</h3></article>
+                <article class="offer-card"><i class="fas fa-globe"></i><h3>School Website Builder</h3></article>
+                <article class="offer-card"><i class="fas fa-chalkboard-user"></i><h3>Live Classes</h3></article>
+                <article class="offer-card"><i class="fas fa-fingerprint"></i><h3>Biometric 2-Way ADMS Sync</h3></article>
+                <article class="offer-card"><i class="fas fa-pencil"></i><h3>Homework</h3></article>
+                <article class="offer-card"><i class="fas fa-book-open"></i><h3>Library Management</h3></article>
+                <article class="offer-card"><i class="fas fa-bus"></i><h3>Transport</h3></article>
+                <article class="offer-card"><i class="fas fa-house"></i><h3>Hostel</h3></article>
+                <article class="offer-card"><i class="fas fa-boxes-stacked"></i><h3>Inventory</h3></article>
+                <article class="offer-card"><i class="fas fa-building"></i><h3>Asset Management</h3></article>
+                <article class="offer-card"><i class="fas fa-robot"></i><h3>AI Assistant</h3></article>
+                <article class="offer-card"><i class="fas fa-book-bookmark"></i><h3>Knowledge Base</h3></article>
+                <article class="offer-card"><i class="fas fa-book-reader"></i><h3>Study Center</h3></article>
+                <article class="offer-card"><i class="fas fa-chart-column"></i><h3>Accounts & Finance</h3></article>
+                <article class="offer-card"><i class="fas fa-landmark"></i><h3>Front Office</h3></article>
+                <article class="offer-card"><i class="fas fa-envelope"></i><h3>Communications</h3></article>
+                <article class="offer-card"><i class="fas fa-list-check"></i><h3>CBC / Competency</h3></article>
+                <article class="offer-card"><i class="fas fa-notes-medical"></i><h3>Health Records</h3></article>
+                <article class="offer-card"><i class="fas fa-mobile-screen"></i><h3>Apps Center</h3></article>
+                <article class="offer-card"><i class="fas fa-handshake"></i><h3>Parent–Teacher Meetings</h3></article>
+                <article class="offer-card"><i class="fas fa-calendar-days"></i><h3>Lesson Planner</h3></article>
+                <article class="offer-card"><i class="fas fa-square-check"></i><h3>Digital Evaluation</h3></article>
+                <article class="offer-card"><i class="fas fa-qrcode"></i><h3>QR Code Attendance</h3></article>
+            </div>
+            <div class="care-cta">
+                <div>
+                    <h3>Planning a school or campus system?</h3>
+                    <p>Have an education project or idea? Let's build it together.</p>
+                </div>
+                <a href="mailto:07nitya@gmail.com">Let's talk</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="insurance" class="band">
+        <div class="wrap">
+            <p class="section-kicker">For insurers and partners</p>
+            <h2>Digital solutions for insurance</h2>
+            <p class="offer-lead">We help insurers, agents, and partners run policy, claims, renewals, and cashless care in customer and partner apps.</p>
+            <div class="offer-grid">
+                <article class="offer-card"><i class="fas fa-mobile-screen"></i><h3>Customer Insurance Apps</h3></article>
+                <article class="offer-card"><i class="fas fa-handshake"></i><h3>Agent & Partner Apps</h3></article>
+                <article class="offer-card"><i class="fas fa-file-signature"></i><h3>Policy Issuance</h3></article>
+                <article class="offer-card"><i class="fas fa-rotate"></i><h3>Renewals & Proposals</h3></article>
+                <article class="offer-card"><i class="fas fa-file-medical"></i><h3>Claims Processing</h3></article>
+                <article class="offer-card"><i class="fas fa-hospital"></i><h3>Cashless Hospital Network</h3></article>
+                <article class="offer-card"><i class="fas fa-chart-line"></i><h3>Commission Dashboards</h3></article>
+                <article class="offer-card"><i class="fas fa-indian-rupee-sign"></i><h3>UPI, Wallets & Net Banking</h3></article>
+                <article class="offer-card"><i class="fas fa-heart-pulse"></i><h3>Wellness API Integrations</h3></article>
+                <article class="offer-card"><i class="fas fa-fingerprint"></i><h3>Biometrics & Secure Access</h3></article>
+            </div>
+            <div class="care-cta">
+                <div>
+                    <h3>Planning an insurance product?</h3>
+                    <p>Have an insurance project or idea? Let's build it together.</p>
+                </div>
+                <a href="mailto:07nitya@gmail.com">Let's talk</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="fintech">
+        <div class="wrap">
+            <p class="section-kicker">For banks and payment teams</p>
+            <h2>Digital solutions for fintech</h2>
+            <p class="offer-lead">We help banks, finance teams, and payment products ship secure mobile apps, wallets, and gateway flows.</p>
+            <div class="offer-grid">
+                <article class="offer-card"><i class="fas fa-building-columns"></i><h3>Banking & Finance Apps</h3></article>
+                <article class="offer-card"><i class="fas fa-mobile-screen"></i><h3>UPI Payments</h3></article>
+                <article class="offer-card"><i class="fas fa-wallet"></i><h3>Wallets</h3></article>
+                <article class="offer-card"><i class="fas fa-credit-card"></i><h3>Paytm, PayU & Razorpay</h3></article>
+                <article class="offer-card"><i class="fas fa-university"></i><h3>Net Banking</h3></article>
+                <article class="offer-card"><i class="fas fa-receipt"></i><h3>Transactions & Receipts</h3></article>
+                <article class="offer-card"><i class="fas fa-user-shield"></i><h3>JWT & OAuth Login</h3></article>
+                <article class="offer-card"><i class="fas fa-lock"></i><h3>Secure Storage & SSL Pinning</h3></article>
+                <article class="offer-card"><i class="fas fa-chart-pie"></i><h3>Finance Dashboards</h3></article>
+                <article class="offer-card"><i class="fas fa-plug"></i><h3>Payment API Integrations</h3></article>
+            </div>
+            <div class="care-cta">
+                <div>
+                    <h3>Planning a payments or finance app?</h3>
+                    <p>Have a fintech project or idea? Let's build it together.</p>
+                </div>
+                <a href="mailto:07nitya@gmail.com">Let's talk</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="commerce" class="band">
+        <div class="wrap">
+            <p class="section-kicker">For brands and marketplaces</p>
+            <h2>Digital solutions for e-commerce</h2>
+            <p class="offer-lead">We help brands and marketplaces build shopping apps, checkout, orders, and seller tools that customers can use on the go.</p>
+            <div class="offer-grid">
+                <article class="offer-card"><i class="fas fa-bag-shopping"></i><h3>Customer Shopping Apps</h3></article>
+                <article class="offer-card"><i class="fas fa-tags"></i><h3>Product Catalog</h3></article>
+                <article class="offer-card"><i class="fas fa-cart-shopping"></i><h3>Cart & Checkout</h3></article>
+                <article class="offer-card"><i class="fas fa-truck"></i><h3>Order Tracking</h3></article>
+                <article class="offer-card"><i class="fas fa-store"></i><h3>Seller & Partner Apps</h3></article>
+                <article class="offer-card"><i class="fas fa-indian-rupee-sign"></i><h3>Payments</h3></article>
+                <article class="offer-card"><i class="fas fa-boxes-stacked"></i><h3>Inventory</h3></article>
+                <article class="offer-card"><i class="fas fa-percent"></i><h3>Offers & Promotions</h3></article>
+                <article class="offer-card"><i class="fas fa-user"></i><h3>Customer Accounts</h3></article>
+                <article class="offer-card"><i class="fas fa-gauge-high"></i><h3>Admin Dashboards</h3></article>
+            </div>
+            <div class="care-cta">
+                <div>
+                    <h3>Planning a store or marketplace?</h3>
+                    <p>Have an e-commerce project or idea? Let's build it together.</p>
+                </div>
+                <a href="mailto:07nitya@gmail.com">Let's talk</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="wrap">
+            <p class="section-kicker">Learning</p>
+            <h2>Education & Certifications</h2>
+            <div class="edu-grid">
+                <article class="edu-card"><i class="fas fa-graduation-cap"></i><h3>B.Tech in Information Technology</h3><p>Uttar Pradesh Technical University</p></article>
+                <article class="edu-card"><i class="fas fa-certificate"></i><h3>Oracle Certified Professional Java SE Programmer</h3><p>OCPJP (1Z0-808)</p></article>
+                <article class="edu-card"><i class="fas fa-certificate"></i><h3>Certification Level 1</h3><p>Angular Developers</p></article>
+                <article class="edu-card"><i class="fas fa-sitemap"></i><h3>Enterprise Architecture Foundations</h3><p>LinkedIn Learning</p></article>
+                <article class="edu-card"><i class="fas fa-brain"></i><h3>Introduction to Generative AI</h3><p>Google Cloud, Coursera</p></article>
+                <article class="edu-card"><i class="fas fa-robot"></i><h3>Copilot in Teams</h3><p>AI-Powered Collaboration · LinkedIn Learning</p></article>
+                <a class="edu-card" href="https://www.linkedin.com/learning/certificates/d0342ab8afe85845d532f82b530b24d3b427b7a65bca22b8385fbceab0abee80" target="_blank" rel="noopener"><i class="fas fa-handshake"></i><h3>Essentials for Solution Engineers</h3><p>LinkedIn Learning · November 2026</p></a>
+            </div>
+        </div>
+    </section>
+
     <section id="awards">
-        <div class="container">
-            <div class="section-title">
-                <h2>Honors & Awards</h2>
+        <div class="wrap">
+            <p class="section-kicker">Recognition</p>
+            <h2>Honors & Accomplishments</h2>
+            <div class="award-grid">
+                <article class="award-card"><i class="fas fa-trophy"></i><h3>Best Overall App Android (H2 2017)</h3><p>Optimization Software Technologies.</p></article>
+                <article class="award-card"><i class="fas fa-lightbulb"></i><h3>Most Innovative Feature App — HerDUM Syst</h3><p>Presented at IIT Delhi.</p></article>
+                <article class="award-card"><i class="fas fa-award"></i><h3>3rd Place, Best TP User Debate Competition</h3><p>Recognition for technical debate.</p></article>
+                <article class="award-card"><i class="fas fa-sync-alt"></i><h3>Native-to-Flutter modernization</h3><p>Led the move across 8 production apps at Care Health Insurance and OneDios, and set technical, solution, and integration architecture for those products.</p></article>
             </div>
-            <ul class="awards-list">
-                <li class="award-item">
-                    <div class="award-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <div class="award-info">
-                        <h3>Best Overall App Android (H2 2017)</h3>
-                        <p>Recognition for excellence in Android app development.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="band">
+        <div class="wrap">
+            <p class="section-kicker">Say hello</p>
+            <h2>Contact Me</h2>
+            <div class="contact-grid">
+                <article class="contact-card"><i class="fas fa-envelope"></i><h3>Email</h3><p><a href="mailto:07nitya@gmail.com">07nitya@gmail.com</a></p><button type="button" class="copy-mail" data-copy="07nitya@gmail.com">Copy email</button></article>
+                <article class="contact-card"><i class="fas fa-phone"></i><h3>Phone</h3><p><a href="tel:+919411294189">+91-9411294189</a></p></article>
+                <article class="contact-card"><i class="fas fa-map-marker-alt"></i><h3>Location</h3><p>Noida, Uttar Pradesh 201301</p></article>
+                <article class="contact-card"><i class="fab fa-linkedin"></i><h3>LinkedIn</h3><p><a href="https://www.linkedin.com/in/07nitya/" target="_blank">linkedin.com/in/07nitya</a></p></article>
+                <article class="contact-card"><i class="fab fa-github"></i><h3>GitHub</h3><p><a href="https://github.com/NityaNandPandey" target="_blank">github.com/NityaNandPandey</a></p></article>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap">
+            <div class="socials">
+                <a href="https://www.linkedin.com/in/07nitya/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/NityaNandPandey" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://stackoverflow.com/users/4345743/nitya-nand-pandey" target="_blank" aria-label="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>
+            </div>
+            <p class="fine">&copy; 2026 Nitya Nand Pandey. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <button class="to-top" type="button" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+    <script>
+        (function () {
+            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var nav = document.querySelector('nav');
+            var navToggle = document.querySelector('.mobile-nav-toggle');
+            var navMenu = document.getElementById('nav-menu');
+            var links = navMenu ? Array.prototype.slice.call(navMenu.querySelectorAll('a')) : [];
+
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function () {
+                    var open = navMenu.classList.toggle('active');
+                    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                    navMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+                    navToggle.innerHTML = open ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                });
+                links.forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        navMenu.classList.remove('active');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                        navMenu.setAttribute('aria-hidden', 'true');
+                        navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    });
+                });
+            }
+
+            if (!reduce) document.documentElement.classList.add('motion');
+
+            var revealNodes = document.querySelectorAll('.stat, .about-copy, .skill-group, .job, .project-card, .offer-card, .edu-card, .award-card, .contact-card, .more-apps, .care-cta, .arch');
+            revealNodes.forEach(function (node, index) {
+                node.classList.add('reveal');
+                node.style.transitionDelay = (index % 6) * 45 + 'ms';
+            });
+
+            if (!reduce && 'IntersectionObserver' in window) {
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (!entry.isIntersecting) return;
+                        entry.target.classList.add('in');
+                        observer.unobserve(entry.target);
+                    });
+                }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
+                revealNodes.forEach(function (node) { observer.observe(node); });
+            } else {
+                revealNodes.forEach(function (node) { node.classList.add('in'); });
+            }
+
+            var sections = links.map(function (link) {
+                return document.getElementById(link.getAttribute('href').slice(1));
+            }).filter(Boolean);
+
+            function onScroll() {
+                if (nav) nav.classList.toggle('scrolled', window.scrollY > 8);
+                var marker = window.scrollY + 140;
+                var current = sections[0];
+                sections.forEach(function (section) {
+                    if (section.offsetTop <= marker) current = section;
+                });
+                links.forEach(function (link) {
+                    link.classList.toggle('active', !!(current && link.getAttribute('href') === '#' + current.id));
+                });
+                var topBtn = document.querySelector('.to-top');
+                if (topBtn) topBtn.classList.toggle('show', window.scrollY > 640);
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+
+            document.querySelectorAll('.copy-mail').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var value = button.getAttribute('data-copy');
+                    var mark = function () {
+                        var previous = button.textContent;
+                        button.textContent = 'Copied';
+                        setTimeout(function () { button.textContent = previous; }, 1500);
+                    };
+                    var fallback = function () {
+                        var field = document.createElement('textarea');
+                        field.value = value;
+                        field.setAttribute('readonly', '');
+                        field.style.position = 'fixed';
+                        field.style.left = '-999px';
+                        document.body.appendChild(field);
+                        field.select();
+                        try { if (document.execCommand('copy')) mark(); } catch (error) {}
+                        field.remove();
+                    };
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(value).then(mark).catch(fallback);
+                    } else {
+                        fallback();
+                    }
+                });
+            });
+
+            var toTop = document.querySelector('.to-top');
+            if (toTop) {
+                toTop.addEventListener('click', function () {
+                    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
